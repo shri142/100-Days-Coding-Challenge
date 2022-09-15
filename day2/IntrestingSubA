@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    long long int n;
+	    cin>>n;
+	    long long int A[n];
+	    for(int i=0;i<n;i++){
+	        cin>>A[i];
+	    }
+	    long long int minm = INT_MAX ,maxm = INT_MIN,cnt=0 ;
+	    for(int i=0;i<n;i++){
+	     if(A[i]<0){
+			cnt++;
+		 }
+	    }
+		long long int Absolute_max = INT_MIN,Actual_max = INT_MIN;
+		if(cnt==n){
+			for(int i=0;i<n;i++){
+			Absolute_max = max(Absolute_max, abs(A[i]));
+			 Actual_max = max(Actual_max,A[i]);
+			}
+			cout<<Actual_max*Actual_max<<" "<<Absolute_max*Absolute_max<<endl;
+		}
+		else if(cnt==0){
+			for(int i=0;i<n;i++){
+				maxm = max(maxm,A[i]);
+				minm = min(minm,A[i]);
+			}
+			cout<<minm*minm<<" "<<maxm*maxm<<endl;
+
+		}
+		else{
+			for(int i=0;i<n;i++){
+               Absolute_max = max(Absolute_max,abs(A[i]));
+			    Actual_max = max(Actual_max,A[i]);
+			   minm = min(minm,A[i]);
+			}
+			cout<<minm*Actual_max<<" "<<Absolute_max*Absolute_max<<endl;
+		}
+	    
+	}
+	return 0;
+}
